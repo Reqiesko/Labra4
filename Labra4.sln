@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Labra4", "Labra4.vcxproj", "{372427F8-0A8F-4778-B6EE-4008FF8F30EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Debug|x64.ActiveCfg = Debug|x64
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Debug|x64.Build.0 = Debug|x64
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Debug|x86.ActiveCfg = Debug|Win32
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Debug|x86.Build.0 = Debug|Win32
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Release|x64.ActiveCfg = Release|x64
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Release|x64.Build.0 = Release|x64
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Release|x86.ActiveCfg = Release|Win32
+		{372427F8-0A8F-4778-B6EE-4008FF8F30EB}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9BBCA5B4-4141-4A21-AEA9-A3DFB730E646}
+	EndGlobalSection
+EndGlobal
