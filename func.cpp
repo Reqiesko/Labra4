@@ -64,8 +64,7 @@ count_ev_in_text counting(vector<string>& text) {
 }
 
 void delete_from_end(vector<string>& text, int line, int number) {
-	int size_str = text[line - 1].length();
-	text[line-1].erase((size_str - number), number);
+	text[line-1].erase((text[line - 1].length() - number), number);
 }
 
 void change_letters_in_text(vector<string>& text, int text_size) {

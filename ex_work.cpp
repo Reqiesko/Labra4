@@ -115,28 +115,45 @@ void keyboard_way() {
 			break;
 		}
 		case del_from_end: {
-			int line = 0, number = 0, size_str, lines = distance(text.begin(), text.end());
+			int line = 0, number = 0, lines = distance(text.begin(), text.end());
 			cout << "Введите номер строки для редактирования:" << endl;
 			line = number_check();
+			while (line >= 1 && line <= lines) {
+				if (text[line - 1].length() == 0) {
+					cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
+					line = number_check();
+					while (line < 1 || line > lines) {
+						cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
+						line = number_check();
+						if (line >= 1 && line <= lines) {
+							if (text[line - 1].length() == 0) {
+								cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
+								line = number_check();
+							}
+						}
+					}
+				}
+				else
+					break;
+			}
 			while (line < 1 || line > lines) {
 				cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 				line = number_check();
-				if (line >= 1 && line <= lines) {
+				while (line >= 1 && line <= lines) {
 					if (text[line - 1].length() == 0) {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
 				}
 			}
-			size_str = text[line - 1].length();
 			cout << "Введите количество символов для удаления:" << endl;
 			number = number_check();
-			if (number > size_str) {
+			if (number > text[line - 1].length()) {
 				cout << "В строке нет столько символов, сколько необходимо удалить. Пожалуйста попробуйте еще раз:" << endl;
-				cout << "Символов в строке: " << size_str << endl;
+				cout << "Символов в строке: " << text[line - 1].length() << endl;
 				cout << "Введите количество символов, которые необходимо удалить:" << endl;
 				number = number_check();
-				while ((number <= 0) || (number > size_str)) {
+				while ((number <= 0) || (number > text[line - 1].length())) {
 					cout << "Некорректно введенные данные. Пожалуйста попробуйте еще раз:" << endl;
 					number = number_check();
 				}
@@ -280,28 +297,45 @@ void file_way() {
 			break;
 		}
 		case del_from_end: {
-			int line = 0, number = 0, size_str, lines = distance(text.begin(), text.end());
+			int line = 0, number = 0, lines = distance(text.begin(), text.end());
 			cout << "Введите номер строки для редактирования:" << endl;
 			line = number_check();			
+			while (line >= 1 && line <= lines) {
+				if (text[line - 1].length() == 0) {
+					cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
+					line = number_check();
+					while (line < 1 || line > lines) {
+						cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
+						line = number_check();
+						if (line >= 1 && line <= lines) {
+							if (text[line - 1].length() == 0) {
+								cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
+								line = number_check();
+							}
+						}
+					}
+				}
+				else
+					break;
+			}
 			while (line < 1 || line > lines) {
 				cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 				line = number_check();
-				if (line >= 1 && line <= lines) {
+				while (line >= 1 && line <= lines) {
 					if (text[line - 1].length() == 0) {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
 				}
-			}
-			size_str = text[line-1].length(); 
+			}			
 			cout << "Введите количество символов для удаления:" << endl;
 			number = number_check();
-			if (number > size_str) {
+			if (number > text[line - 1].length()) {
 				cout << "В строке нет столько символов, сколько необходимо удалить. Пожалуйста попробуйте еще раз:" << endl;
-				cout << "Символов в строке: " << size_str << endl;
+				cout << "Символов в строке: " << text[line - 1].length() << endl;
 				cout << "Введите количество символов, которые необходимо удалить:" << endl;
 				number = number_check();
-				while ((number <= 0) || (number > size_str)) {
+				while (number <= 0 || number > text[line - 1].length()) {
 					cout << "Некорректно введенные данные. Пожалуйста попробуйте еще раз:" << endl;
 					number = number_check();
 				}
