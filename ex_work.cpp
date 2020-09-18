@@ -115,7 +115,9 @@ void keyboard_way() {
 			break;
 		}
 		case del_from_end: {
-			int line = 0, number = 0, lines = distance(text.begin(), text.end());
+			int line = 0, number = 0; 
+			size_t lines = distance(text.begin(), text.end());
+			static_cast<int>(lines);
 			cout << "Введите номер строки для редактирования:" << endl;
 			line = number_check();
 			while (line >= 1 && line <= lines) {
@@ -240,7 +242,7 @@ void file_way() {
 		}
 		fin.close();
 		fin.open(inpath, ios::in);
-		int lines = distance(text.begin(), text.end());
+		size_t lines = distance(text.begin(), text.end());
 		while (!fin.eof()) {
 			while (getline(fin, buffer)) {
 				text.push_back(buffer);
@@ -297,18 +299,21 @@ void file_way() {
 			break;
 		}
 		case del_from_end: {
-			int line = 0, number = 0, lines = distance(text.begin(), text.end());
+			int line = 0, number = 0;
+			size_t lines = distance(text.begin(), text.end());
+			static_cast<int>(lines);
 			cout << "Введите номер строки для редактирования:" << endl;
-			line = number_check();			
+			line = number_check();
+			int last_line = line - 1;
 			while (line >= 1 && line <= lines) {
-				if (text[line - 1].length() == 0) {
+				if (text[last_line].length() == 0) {
 					cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 					line = number_check();
 					while (line < 1 || line > lines) {
 						cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 						line = number_check();
 						if (line >= 1 && line <= lines) {
-							if (text[line - 1].length() == 0) {
+							if (text[last_line].length() == 0) {
 								cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 								line = number_check();
 							}

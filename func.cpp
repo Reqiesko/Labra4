@@ -26,14 +26,15 @@ int number_check() {
 count_ev_in_text counting(vector<string>& text) {	
   string letters = "qwetryuiopasdfghjklzxcbvnméöóêåíãøùçõúôûâàïğëîäæıÿ÷ñìèòüáşQWERTYUIOPASDFGHJKLZXCVBNMÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ";
   string numbers = "0123456789";
-  int symbols_count, words_count, lines_count, paragraphs_count;
-  symbols_count = 0;
+  int /*symbols_count,*/ words_count, /*lines_count,*/ paragraphs_count;
+  //symbols_count = 0;
   words_count = 0;
-  lines_count = 0;
+ // lines_count = 0;
   paragraphs_count = 0;
-  lines_count = distance(text.begin(), text.end());
+	size_t symbols_count = 0;
+	size_t lines_count = distance(text.begin(), text.end());
   for (int i = 0; i < text.size(); i++) {
-    symbols_count += text[i].length();
+    symbols_count = symbols_count + text[i].length();
     const char* str = text[i].c_str();
     int j = 0;
     int word = 0;
@@ -56,9 +57,9 @@ count_ev_in_text counting(vector<string>& text) {
     }
   } 
   return {
-    symbols_count, 
+    static_cast<int>(symbols_count), 
     words_count,
-    lines_count,
+    static_cast<int>(lines_count),
     paragraphs_count
   };
 }
@@ -67,7 +68,7 @@ void delete_from_end(vector<string>& text, int line, int number) {
 	text[line-1].erase((text[line - 1].length() - number), number);
 }
 
-void change_letters_in_text(vector<string>& text, int text_size) {
+void change_letters_in_text(vector<string>& text, size_t text_size) {
 	char lower = 'ÿ', upper = 'ß';
 	for (int i = 0; i < text_size; i++) {
 		for (unsigned int j = 0; j < text[i].length(); j++) {

@@ -20,7 +20,7 @@ count_ev_in_text counting(vector<string>& text);
 
 void delete_from_end(vector<string>& text, int line, int number);
 
-void change_letters_in_text(vector<string>& text, int text_size);
+void change_letters_in_text(vector<string>& text, size_t text_size);
 
 bool file_name_check(string filename);
 

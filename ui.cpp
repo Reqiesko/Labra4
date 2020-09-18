@@ -55,7 +55,6 @@ void main_menu() {
 			case out: {
 				cout << "Программа завершена." << endl;
 				exit(0);
-				break;
 			}
 			default: {
 				cout << "Пожалуйста введите цифру из ниже указанных! " << endl;
@@ -123,53 +122,55 @@ int wtdw_file(string& pFile) {
 		}
 		cin.ignore(ignor, '\n');
 		switch (del) {
-		case rewrite: {
-			return rewrite;
-		}
-		case add: {
-			return add;
-		}
-		case newfile: {
-			bool trg = true;
-			while (trg) {
-				cout << "Введите путь к файлу. " << endl;
-				cin >> pFile;
-				foutcheck.open(pFile, ios::in);
-				while (file_name_check(pFile)) {
-					foutcheck.close();
-					cout << "Ошибка! Некорректный путь или имя файла." << endl;
-					cout << "Введите путь к файлу: " << endl;
+			case rewrite: {
+				return rewrite;
+			}
+			case add: {
+				return add;
+			}
+			case newfile: {
+				bool trg = true;
+				while (trg) {
+					cout << "Введите путь к файлу. " << endl;
 					cin >> pFile;
 					foutcheck.open(pFile, ios::in);
-				}
-				while (!check_read_only(pFile)) {
-					foutcheck.close();
-					cout << "Введите путь к файлу: " << endl;
-					cin >> pFile;
-					foutcheck.open(pFile);
-				}
-				if (!foutcheck.is_open()) {
-					ifstream newfile(pFile);
-					newfile.close();
-					return rewrite;
-				}
-				else {
-					bool check = file_check_size(pFile);
-					foutcheck.close();
-					if (check) {
-						return 0;
+					while (file_name_check(pFile)) {
+						foutcheck.close();
+						cout << "Ошибка! Некорректный путь или имя файла." << endl;
+						cout << "Введите путь к файлу: " << endl;
+						cin >> pFile;
+						foutcheck.open(pFile, ios::in);
+					}
+					while (!check_read_only(pFile)) {
+						foutcheck.close();
+						cout << "Введите путь к файлу: " << endl;
+						cin >> pFile;
+						foutcheck.open(pFile);
+					}
+					if (!foutcheck.is_open()) {
+						ifstream newfile(pFile);
+						newfile.close();
+						return rewrite;
 					}
 					else {
-						return wtdw_file(pFile);
+						bool check = file_check_size(pFile);
+						foutcheck.close();
+						if (check) {
+							return 0;
+						}
+						else {
+							return wtdw_file(pFile);
+						}
 					}
 				}
 			}
-		}
-		default: {
-			cout << "Пожалуйста введите цифру 1, 2 или 3. " << endl;
-		}
+			default: {
+				cout << "Пожалуйста введите цифру 1, 2 или 3. " << endl;
+				continue;
+			}
 		}
 	}
+	return 0;
 }
 
 int save_result_q() {
@@ -199,4 +200,5 @@ int save_result_q() {
 		}
 		cin.clear();
 	}
+	return 0;
 }
