@@ -214,6 +214,7 @@ const int ignor = 32767;
 void file_way() {
 	string inpath;
 	string buffer;
+	
 	count_ev_in_text count = {};
 	ifstream fin;
 	vector<string> text;
@@ -242,7 +243,7 @@ void file_way() {
 		}
 		fin.close();
 		fin.open(inpath, ios::in);
-		size_t lines = distance(text.begin(), text.end());
+		
 		while (!fin.eof()) {
 			while (getline(fin, buffer)) {
 				text.push_back(buffer);

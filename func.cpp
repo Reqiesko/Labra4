@@ -26,10 +26,8 @@ int number_check() {
 count_ev_in_text counting(vector<string>& text) {	
   string letters = "qwetryuiopasdfghjklzxcbvnméöóêåíãøùçõúôûâàïğëîäæıÿ÷ñìèòüáşQWERTYUIOPASDFGHJKLZXCVBNMÉÖÓÊÅÍÃØÙÇÕÚÔÛÂÀÏĞÎËÄÆİß×ÑÌÈÒÜÁŞ";
   string numbers = "0123456789";
-  int /*symbols_count,*/ words_count, /*lines_count,*/ paragraphs_count;
-  //symbols_count = 0;
+  int  words_count, paragraphs_count;
   words_count = 0;
- // lines_count = 0;
   paragraphs_count = 0;
 	size_t symbols_count = 0;
 	size_t lines_count = distance(text.begin(), text.end());
@@ -71,9 +69,9 @@ void delete_from_end(vector<string>& text, int line, int number) {
 void change_letters_in_text(vector<string>& text, size_t text_size) {
 	char lower = 'ÿ', upper = 'ß';
 	for (int i = 0; i < text_size; i++) {
-		for (unsigned int j = 0; j < text[i].length(); j++) {
+		for (int j = 0; j < text[i].length(); j++) {
 			if ((j == 0) || (text[i][j - 1] == ' ')) {
-				text[i][j] = toupper(text[i][j]);
+				text[i][j] = (char)toupper(text[i][j]);
 				if (text[i][j] == lower) {
 					text[i][j] = upper;
 				}

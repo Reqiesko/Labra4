@@ -186,9 +186,8 @@ int save_result_q() {
 		cin.ignore(ignor, '\n');
 		switch (var) {
 			case yes: {
-				return yes;
 				sw = false;
-				break;
+				return yes;			
 			}
 			case no: {
 				sw = false;
