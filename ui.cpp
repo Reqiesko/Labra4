@@ -2,7 +2,7 @@
 #include "func.h"
 #include "ex_work.h"
 #include "test.h"
-const int ignor = 32767; 
+
 
 void greeting() { // Приветсвие
 	system("cls");
@@ -19,6 +19,7 @@ void greeting() { // Приветсвие
 
 void main_menu() {
 	int var;
+	const int ignor = 32767;
 	cout << endl;
 	while (true) {
 		cout << "Menu" << endl;
@@ -66,7 +67,7 @@ void main_menu() {
 
 int menu_text_work() {
 	int var; 
-	
+	const int ignor = 32767;
 	while (true) {
 		cout << endl;
 		cout << "Что сделать с текстом? " << endl;
@@ -108,7 +109,7 @@ int wtdw_file(string& pFile) {
 	bool d = true;
 	ifstream foutcheck;
 	int del;
-
+	const int ignor = 32767;
 	while (d) {
 		cout << endl;
 		cout << "Файл не пуст! Выберите вариант." << endl;
@@ -175,6 +176,7 @@ int wtdw_file(string& pFile) {
 
 int save_result_q() {
 	int var = 0;
+	const int ignor = 32767;
 	bool sw = true;
 	while (sw) {
 		cout << "1. Да " << endl;

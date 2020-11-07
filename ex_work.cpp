@@ -33,7 +33,7 @@ void keyboard_way() {
 	cout << "Выберите вариант:" << endl;
 	cout << "Сохранить исходные данные в файл? " << endl;
 
-	if (save_result_q() == 1) {
+	if (save_result_q() == yes) {
 		string adres;
 		ifstream foutcheck;
 		cout << "Введите путь к файлу для сохранения исходных данных. " << endl;
@@ -79,7 +79,7 @@ void keyboard_way() {
 			cout << endl;
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
-			if (save_result_q() == 1) {
+			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;
 				cout << "Введите путь к файлу для сохранения результата. " << endl;
@@ -174,7 +174,7 @@ void keyboard_way() {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
 
-			if (save_result_q() == 1) {
+			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;
 				cout << "Введите путь к файлу для сохранения результата. " << endl;
@@ -210,11 +210,11 @@ void keyboard_way() {
 		}
 	}
 }
-const int ignor = 32767;
+
 void file_way() {
+	const int ignor = 32767;
 	string inpath;
 	string buffer;
-	
 	count_ev_in_text count = {};
 	ifstream fin;
 	vector<string> text;
@@ -264,7 +264,7 @@ void file_way() {
 			cout << endl;
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
-			if (save_result_q() == 1) {
+			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;
 				cout << "Введите путь к файлу для сохранения результата. " << endl;
@@ -360,7 +360,7 @@ void file_way() {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
 
-			if (save_result_q() == 1) {
+			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;
 				cout << "Введите путь к файлу для сохранения результата. " << endl;
@@ -396,4 +396,3 @@ void file_way() {
 		}
 	}
 }
-

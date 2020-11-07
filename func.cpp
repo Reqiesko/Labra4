@@ -1,11 +1,14 @@
 #include "func.h"
 #include "ui.h"
 
+
+
 bool error_check() {
+	const int ignor = 32767;
 	if (cin.fail())
 	{
 		cin.clear();
-		cin.ignore(32767, '\n');
+		cin.ignore(ignor, '\n');
 		cout << "Пожалуйста введите цифру из ниже указанных! " << endl;
 		return 0;
 	}
@@ -104,11 +107,12 @@ void print_text(vector<string> text) {
 
 void save_source(string inpath, vector<string> text, int modout) {
 	ofstream fout;
-	if (modout == 1) {
+	int rewrite = 1, add = 2;
+	if (modout == rewrite) {
 		fout.open(inpath, ios::out);
 		fout << " " << endl;
 	}
-	if (modout == 2) {
+	if (modout == add) {
 		fout.open(inpath, ios::app);
 		fout << " " << endl;
 	}
@@ -120,13 +124,14 @@ void save_source(string inpath, vector<string> text, int modout) {
 
 void save_source_data(string inpath, vector<string> text, int modout) {
 	ofstream fout;
+	int rewrite = 1, add = 2;
 	count_ev_in_text count = {};
 	count = counting(text);
-	if (modout == 1) {
+	if (modout == rewrite) {
 		fout.open(inpath, ios::out);
 		fout << " " << endl;
 	}
-	if (modout == 2) {
+	if (modout == add) {
 		fout.open(inpath, ios::app);
 		fout << " " << endl;
 	}
