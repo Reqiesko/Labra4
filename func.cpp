@@ -145,10 +145,11 @@ void save_source_data(string inpath, vector<string> text, int modout) {
 }
 
 bool file_check_size(string pFile) {
+	const int size_file = 0;
 	ifstream file_check_size;
 	file_check_size.open(pFile, ios::in);
 	file_check_size.seekg(0, ios::end);
-	if (file_check_size.tellg() == 0) {
+	if (file_check_size.tellg() == size_file) {
 		file_check_size.close();
 		return true;
 	}

@@ -1,8 +1,9 @@
 #include "ui.h"
 #include "func.h"
 #include "test.h"
-const int count_of_tests = 6;
+
 void module_tests() {
+	const int count_of_tests = 6;
 	vector<string> source_text, expected_text;
 	count_ev_in_text count = {};
 	int expected_sym1 = 27, expected_words1 = 4, expected_lines1 = 4, expected_paragraphs1 = 0, success_tests = 0;

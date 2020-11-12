@@ -7,6 +7,7 @@ void keyboard_way() {
 	vector<string> text;
 	count_ev_in_text count = {};
 	string buffer = "\0";
+	const int null_size = 0;
 	cout << "Введите текст." << endl;
 	cout << "По окончании ввода введите пустую строку." << endl;
 	while (true) {
@@ -15,7 +16,7 @@ void keyboard_way() {
 			text.push_back(buffer);
 		}
 		else {
-			if (text.size() == 0) {
+			if (text.size() == null_size) {
 				cout << "Вы не ввели текст." << endl;
 				cout << "Введите текст: " << endl;
 				cout << endl;
@@ -116,19 +117,20 @@ void keyboard_way() {
 		}
 		case del_from_end: {
 			int line = 0, number = 0; 
+			const int first_line = 1;
 			size_t lines = distance(text.begin(), text.end());
 			static_cast<int>(lines);
 			cout << "Введите номер строки для редактирования:" << endl;
 			line = number_check();
-			while (line >= 1 && line <= lines) {
-				if (text[line - 1].length() == 0) {
+			while (line >= first_line && line <= lines) {
+				if (text[line - 1].length() == null_size) {
 					cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 					line = number_check();
-					while (line < 1 || line > lines) {
+					while (line < first_line || line > lines) {
 						cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 						line = number_check();
-						if (line >= 1 && line <= lines) {
-							if (text[line - 1].length() == 0) {
+						if (line >= first_line && line <= lines) {
+							if (text[line - 1].length() == null_size) {
 								cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 								line = number_check();
 							}
@@ -138,11 +140,11 @@ void keyboard_way() {
 				else
 					break;
 			}
-			while (line < 1 || line > lines) {
+			while (line < first_line || line > lines) {
 				cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 				line = number_check();
-				while (line >= 1 && line <= lines) {
-					if (text[line - 1].length() == 0) {
+				while (line >= first_line && line <= lines) {
+					if (text[line - 1].length() == null_size) {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
@@ -155,7 +157,7 @@ void keyboard_way() {
 				cout << "Символов в строке: " << text[line - 1].length() << endl;
 				cout << "Введите количество символов, которые необходимо удалить:" << endl;
 				number = number_check();
-				while ((number <= 0) || (number > text[line - 1].length())) {
+				while ((number <= null_size) || (number > text[line - 1].length())) {
 					cout << "Некорректно введенные данные. Пожалуйста попробуйте еще раз:" << endl;
 					number = number_check();
 				}
@@ -170,10 +172,9 @@ void keyboard_way() {
 			break;
 		}
 		}
-		if (var != 1) {
+		if (var != count_sym) {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
-
 			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;
@@ -212,7 +213,7 @@ void keyboard_way() {
 }
 
 void file_way() {
-	const int ignor = 32767;
+	const int ignor = 32767, null_size = 0;
 	string inpath;
 	string buffer;
 	count_ev_in_text count = {};
@@ -301,20 +302,20 @@ void file_way() {
 		}
 		case del_from_end: {
 			int line = 0, number = 0;
+			const int first_line = 1;
 			size_t lines = distance(text.begin(), text.end());
 			static_cast<int>(lines);
 			cout << "Введите номер строки для редактирования:" << endl;
 			line = number_check();
-			int last_line = line - 1;
-			while (line >= 1 && line <= lines) {
-				if (text[last_line].length() == 0) {
+			while (line >= first_line && line <= lines) {
+				if (text[line - 1].length() == null_size) {
 					cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 					line = number_check();
-					while (line < 1 || line > lines) {
+					while (line < first_line || line > lines) {
 						cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 						line = number_check();
-						if (line >= 1 && line <= lines) {
-							if (text[last_line].length() == 0) {
+						if (line >= first_line && line <= lines) {
+							if (text[line - 1].length() == null_size) {
 								cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 								line = number_check();
 							}
@@ -324,11 +325,11 @@ void file_way() {
 				else
 					break;
 			}
-			while (line < 1 || line > lines) {
+			while (line < first_line || line > lines) {
 				cout << "Указана не существующая строка! Пожалуйста введите номер строки еще раз: " << endl;
 				line = number_check();
-				while (line >= 1 && line <= lines) {
-					if (text[line - 1].length() == 0) {
+				while (line >= first_line && line <= lines) {
+					if (text[line - 1].length() == null_size) {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
@@ -341,7 +342,7 @@ void file_way() {
 				cout << "Символов в строке: " << text[line - 1].length() << endl;
 				cout << "Введите количество символов, которые необходимо удалить:" << endl;
 				number = number_check();
-				while (number <= 0 || number > text[line - 1].length()) {
+				while (number <= null_size || number > text[line - 1].length()) {
 					cout << "Некорректно введенные данные. Пожалуйста попробуйте еще раз:" << endl;
 					number = number_check();
 				}
@@ -356,10 +357,9 @@ void file_way() {
 			break;
 		}
 		}
-		if (var != 1) {
+		if (var != count_sym) {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
-
 			if (save_result_q() == yes) {
 				string adres;
 				ifstream foutcheck;

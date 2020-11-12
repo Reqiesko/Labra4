@@ -4,7 +4,7 @@
 #include "test.h"
 
 
-void greeting() { // Приветсвие
+void greeting() {
 	system("cls");
 	cout << "Эта программа подсчитывает количество символов, слов, строк, абзацев в тексте, " << endl;
 	cout << "удаляет символы с конца заданной строки, " << endl;
@@ -177,8 +177,7 @@ int wtdw_file(string& pFile) {
 int save_result_q() {
 	int var = 0;
 	const int ignor = 32767;
-	bool sw = true;
-	while (sw) {
+	while (true) {
 		cout << "1. Да " << endl;
 		cout << "2. Нет " << endl;
 		cin >> var;
@@ -188,12 +187,10 @@ int save_result_q() {
 		cin.ignore(ignor, '\n');
 		switch (var) {
 			case yes: {
-				sw = false;
-				return yes;			
+				return yes;		
 			}
 			case no: {
-				sw = false;
-				break;
+				return no;
 			}
 			default: {
 				cout << "Пожалуйста введите цифру 1 или 2. " << endl;
