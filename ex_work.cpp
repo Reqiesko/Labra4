@@ -171,8 +171,13 @@ void keyboard_way() {
 			print_text(text);
 			break;
 		}
+		case back_in_menu: {
+			break;
+		}		
 		}
-		if (var != count_sym) {
+		if (var == back_in_menu)
+			break;
+		if (var != count_sym && var != back_in_menu) {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
 			if (save_result_q() == yes) {
@@ -213,7 +218,7 @@ void keyboard_way() {
 }
 
 void file_way() {
-	const int ignor = 32767, null_size = 0;
+	const int null_size = 0;
 	string inpath;
 	string buffer;
 	count_ev_in_text count = {};
@@ -231,14 +236,14 @@ void file_way() {
 	if (!fin.is_open()) {
 		cout << "Ошибка! Не удаётся открыть файл!" << endl;
 		cin.clear();
-		cin.ignore(ignor, '\n');
+		cin.ignore(INT_MAX, '\n');
 		main_menu();
 	}
 	else {
 		if (file_check_size(inpath) == true) {
 			cout << "Ошибка! Файл пуст!" << endl;
 			cin.clear();
-			cin.ignore(ignor, '\n');
+			cin.ignore(INT_MAX, '\n');
 			fin.close();
 			main_menu();
 		}
@@ -357,7 +362,9 @@ void file_way() {
 			break;
 		}
 		}
-		if (var != count_sym) {
+		if (var == back_in_menu)
+			break;
+		if (var != count_sym && var != back_in_menu) {
 			cout << "Выберите вариант:" << endl;
 			cout << "Сохранить результат в файл? " << endl;
 			if (save_result_q() == yes) {

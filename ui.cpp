@@ -19,7 +19,6 @@ void greeting() {
 
 void main_menu() {
 	int var;
-	const int ignor = 32767;
 	cout << endl;
 	while (true) {
 		cout << "Menu" << endl;
@@ -31,11 +30,10 @@ void main_menu() {
 		cout << "5. Выйти из программы. " << endl;
 		cout << endl;
 		var = number_check();
-
 		if (!error_check()) {
 			continue;
 		}
-		cin.ignore(ignor, '\n');
+		cin.ignore(INT_MAX, '\n');
 		switch (var) {
 			case keyboard: {
 				keyboard_way();
@@ -55,19 +53,21 @@ void main_menu() {
 			}
 			case out: {
 				cout << "Программа завершена." << endl;
-				exit(0);
+				break;
 			}
 			default: {
 				cout << "Пожалуйста введите цифру из ниже указанных! " << endl;
 			}
 		}
 		cin.clear();
+		if (var == out) {
+			break;
+		}
 	}
 }
 
 int menu_text_work() {
 	int var; 
-	const int ignor = 32767;
 	while (true) {
 		cout << endl;
 		cout << "Что сделать с текстом? " << endl;
@@ -76,32 +76,31 @@ int menu_text_work() {
 		cout << "3. Заменить все первые строчные буквы слов прописными." << endl;
 		cout << "4. Назад в меню." << endl;
 		var = number_check();
-
 		if (!error_check()) {
 			continue;
 		}
-		cin.ignore(ignor, '\n');
+		cin.ignore(INT_MAX, '\n');
 		switch (var) {
 			case count_sym: {
 				return count_sym;
-				break;
 			}
 			case del_from_end: {
 				return del_from_end;
-				break;
 			}
 			case change_letters: {
 				return change_letters;
 			}
 			case back_in_menu: {
-				main_menu();
-				break;
+				return back_in_menu;
 			}
 			default: {
 				cout << "Пожалуйста введите цифру из указанных ниже!" << endl;
 				continue;
 			}
 		}
+		cin.clear();
+		if (var == back_in_menu)
+			break;
 	}
 }
 
@@ -109,7 +108,6 @@ int wtdw_file(string& pFile) {
 	bool d = true;
 	ifstream foutcheck;
 	int del;
-	const int ignor = 32767;
 	while (d) {
 		cout << endl;
 		cout << "Файл не пуст! Выберите вариант." << endl;
@@ -121,7 +119,7 @@ int wtdw_file(string& pFile) {
 		if (!error_check()) {
 			continue;
 		}
-		cin.ignore(ignor, '\n');
+		cin.ignore(INT_MAX, '\n');
 		switch (del) {
 			case rewrite: {
 				return rewrite;
@@ -176,7 +174,6 @@ int wtdw_file(string& pFile) {
 
 int save_result_q() {
 	int var = 0;
-	const int ignor = 32767;
 	while (true) {
 		cout << "1. Да " << endl;
 		cout << "2. Нет " << endl;
@@ -184,7 +181,7 @@ int save_result_q() {
 		if (!error_check()) {
 			continue;
 		}
-		cin.ignore(ignor, '\n');
+		cin.ignore(INT_MAX, '\n');
 		switch (var) {
 			case yes: {
 				return yes;		

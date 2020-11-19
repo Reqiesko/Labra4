@@ -7,4 +7,5 @@ int main() {
 	SetConsoleOutputCP(1251);
 	greeting();
 	main_menu();
+	return 0;
 }
