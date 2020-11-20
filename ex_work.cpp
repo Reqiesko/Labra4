@@ -148,6 +148,8 @@ void keyboard_way() {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
+					else
+						break;
 				}
 			}
 			cout << "Введите количество символов для удаления:" << endl;
@@ -338,6 +340,8 @@ void file_way() {
 						cout << "Эта строка уже пуста! Укажите другую строку:" << endl;
 						line = number_check();
 					}
+					else
+						break;
 				}
 			}			
 			cout << "Введите количество символов для удаления:" << endl;
